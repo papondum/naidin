@@ -1,0 +1,50 @@
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+    <div ng-controller="mainCtrl" class="container">
+      <h2>Book store</h2>
+      <table class="table table-hover">
+        <tr class="active">
+          <td><h4>My item(s)</h4></td>
+          <td><h4>Quantity</h4></td>
+        </tr>
+        <tr ng-repeat='data in basket' ng-click="add(data)">
+         <td><p>{{data.name}}</p></td>
+         <td><p>{{data.quantity}}</td>
+       </tr>
+       <tr class="active">
+          <td>Total</td>
+          <td>{{sum}}</td>
+        </tr>
+      </table>
+     
+      <ul class="unstyled">
+        <li ng-repeat="todo in todoList.todos">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </label>
+        </li>
+      </ul>   
+      <table class="table">   
+        <tr>
+        <td><button type="submit"  ng-click='getResult()' class="btn btn-default">Submit</button></td>
+      
+        <td><p>Total:{{result |currency}}</p></td>
+        </tr>
+      <table>
+
+        
+      <p>Individual: {{individual}}</p>
+      <p>Set: {{Individualset}}</p>
+    </div>
+  </body>
+</html>
